@@ -1,0 +1,233 @@
+body {
+    display: grid;
+    grid-template-areas: 'header header header header' 'main main main nav' 'main main main nav' 'footer footer footer footer';
+    font-family: "Open Sans";
+    color: #1B3349;
+}
+
+.header {
+    display: grid;
+    grid-area: header;
+    text-align: center;
+}
+
+main {
+    display: grid;
+    grid-area: main;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1vw;
+    margin-right: 10px;
+}
+
+.cake_img img {
+    width: 100%;
+    height: 10vw;
+}
+
+.item {
+    border-radius: 0.5vw;
+    background-color: rgba(187, 228, 255, 0.226);
+}
+
+.item:hover {
+    border-radius: 0.5vw;
+    background-color: rgba(187, 228, 255, 0.26);
+    box-shadow: 3px 2px 6px grey;
+}
+
+.main_info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+}
+
+nav {
+    display: grid;
+    grid-area: nav;
+    width: 20vw;
+    background-color: rgba(187, 228, 255, 0.226);
+    border-radius: 8px;
+    border: 1px solid grey;
+    text-align: center;
+}
+
+nav label {
+    border: 1px solid rgb(197, 197, 197);
+    margin: -20% 2vw;
+    border-radius: 3px;
+    background-color: rgba(123, 202, 255, 0.226);
+    height: 50%;
+    padding: 3% 0;
+}
+
+nav label:hover {
+    box-shadow: 1px 1px 3px grey;
+}
+
+.footer {
+    display: grid;
+    margin-top: 2vw;
+    grid-area: footer;
+    grid-template-columns: auto 1fr 1fr;
+    grid-template-areas: 'contact mail copyright';
+}
+
+.contact,
+.mail,
+.copyright {
+    display: grid;
+}
+
+.contact {
+    width: fit-content;
+    grid-area: contact;
+}
+
+.mail {
+    grid-area: mail;
+    width: fit-content;
+}
+
+.copyright {
+    grid-area: copyright;
+    width: fit-content;
+    justify-self: right;
+}
+
+.calo {
+    padding: 1vw;
+    border-top: 1px solid rgb(155, 155, 155);
+}
+
+.cake_img {
+    margin-right: 1vw;
+}
+
+.description {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.description .cake_name {
+    font-weight: bold;
+}
+
+.nav_info {
+    height: fit-content;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* Функционал навигации и фильтров */
+
+#pie:checked~ :not(.pie_group),
+#roulete:checked~ :not(.roulete_group),
+#cheesecake:checked~ :not(.cheesecake_group),
+#tistechko:checked~ :not(.tistechko_group),
+#cake:checked~ :not(.cake_group) {
+    opacity: 0.4;
+}
+
+@media (max-width:1200px) {
+    main {
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-right: 0;
+    }
+    body {
+        grid-template-areas: 'header header header header' 'nav nav nav nav' 'main main main main' 'footer footer footer footer';
+    }
+    nav {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1vw;
+        background-color: white;
+        border: none;
+    }
+    nav label {
+        border: 1px solid rgb(204, 204, 204);
+        margin: 0.5vw 0;
+    }
+    .main_info {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .footer {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: 'contact copyright' 'mail mail';
+    }
+    .description {
+        display: block;
+    }
+    .calo {
+        display: none;
+    }
+    .cake_img img {
+        width: 100%;
+        height: 15vw;
+    }
+    .nav_info {
+        display: none;
+    }
+    #mail_box {
+        display: inline;
+    }
+}
+
+@media (max-width:730px) and (min-width: 375px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+    body {
+        grid-template-areas: 'header header header header' 'nav nav nav nav' 'main main main main' 'footer footer footer footer';
+    }
+    nav {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    nav label {
+        border: 1px solid rgb(204, 204, 204);
+        margin: 0.5vw 0.7vw;
+    }
+    .footer {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: 'contact contact' 'mail mail' 'copyright copyright';
+    }
+    .copyright {
+        justify-self: left;
+    }
+    .description {
+        display: none;
+    }
+    .cake_img img {
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+    }
+    .item {
+        padding: 0;
+        margin: 10px 10px;
+    }
+    .cake_img {
+        margin: 0;
+    }
+    .main_info {
+        padding: 0;
+    }
+    .item:hover {
+        border-radius: 10px;
+        background-color: rgba(187, 228, 255, 0.26);
+        box-shadow: 3px 2px 6px grey;
+    }
+}
+
+#ampersand {
+    color: #E3475A;
+    font-size: 40px;
+}
